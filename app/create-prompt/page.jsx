@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import Form from "@components/Form";
 
 function page() {
-
   const { data: session } = useSession();
   const router = useRouter();
 
   const [submitting, setSubmitting] = useState(false);
+  const [file, setFile] = useState();
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
@@ -20,13 +20,15 @@ function page() {
     e.preventDefault();
     setSubmitting(true);
     try {
+      const data = new FormData();
+      data.set("file", file);
+      data.set("userId", session?.user.id);
+      data.set("prompt", post.prompt);
+      data.set("tag", post.tag);
+
       const response = await fetch("/api/prompt/new", {
         method: "POST",
-        body: JSON.stringify({
-          prompt: post.prompt,
-          userId: session?.user.id,
-          tag: post.tag,
-        }),
+        body: data,
       });
       if (response.ok) {
         router.push("/");
@@ -43,6 +45,7 @@ function page() {
       type="Create"
       post={post}
       setPost={setPost}
+      setFile={setFile}
       submitting={submitting}
       handleSubmit={createPrompt}
     />

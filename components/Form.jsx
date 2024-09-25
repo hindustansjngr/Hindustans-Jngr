@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-function Form({ type, post, setPost, submitting, handleSubmit }) {
+function Form({ type, post, setPost, setFile, submitting, handleSubmit }) {
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="head_text text-left">
@@ -16,6 +16,20 @@ function Form({ type, post, setPost, submitting, handleSubmit }) {
         onSubmit={handleSubmit}
         className="mt-10 w-full max-w-2xl flex flex-col gap-7 glass-morphism"
       >
+        {type === "Create" ? (
+          <label htmlFor="">
+            <span className="font-satoshi font-semibold text-base text-gray-700">
+              Image
+            </span>
+            <input
+              onChange={(e) => setFile(e.target.files?.[0])}
+              placeholder="Upload"
+              type="file"
+              name="file"
+            />
+          </label>
+        ) : null}
+
         <label htmlFor="">
           <span className="font-satoshi font-semibold text-base text-gray-700">
             Your AI Prompt
@@ -30,8 +44,11 @@ function Form({ type, post, setPost, submitting, handleSubmit }) {
         </label>
         <label htmlFor="">
           <span className="font-satoshi font-semibold text-base text-gray-700">
-            Tag {" "}
-            <span className="font-normal"> (#product, #webdevelopment, #idea)</span>
+            Tag{" "}
+            <span className="font-normal">
+              {" "}
+              (#product, #webdevelopment, #idea)
+            </span>
           </span>
           <input
             value={post.tag}
@@ -43,8 +60,14 @@ function Form({ type, post, setPost, submitting, handleSubmit }) {
         </label>
 
         <div className="flex-end mx-3 mb-5 gap-4">
-          <Link href="/" className="text-gray-500 text-sm">Cancel</Link>
-          <button type="submit" disabled={submitting} className="px-5 py-1.5 rounded-full text-sm bg-primary-orange text-white border-none">
+          <Link href="/" className="text-gray-500 text-sm">
+            Cancel
+          </Link>
+          <button
+            type="submit"
+            disabled={submitting}
+            className="px-5 py-1.5 rounded-full text-sm bg-primary-orange text-white border-none"
+          >
             {submitting ? `${type}...` : type}
           </button>
         </div>
