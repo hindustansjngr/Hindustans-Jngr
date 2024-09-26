@@ -14,8 +14,8 @@ export default function Home() {
         </span>
       </h1>
       <p className="desc text-center">
-        Wheel Alignment & Tyres: JS Complex, Mavinakoppa, Hosanagara-577418
-        Sounds and Pendal Works: Jayanagara, Hosanagara-577418
+        <b>Wheel Alignment & Tyres:</b> JS Complex, Mavinakoppa, Hosanagara-577418 <br />
+        <b>Sounds and Pendal Works:</b> Jayanagara, Hosanagara-577418
       </p>
 
       {/* Feed Component */}

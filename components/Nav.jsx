@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 function Nav() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const [providers, setProviders] = useState(null);
@@ -24,7 +24,7 @@ function Nav() {
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/logo.jpeg"
-          alt="Promptopia Logo"
+          alt="Hindustans Logo"
           width={40}
           height={40}
           className="object-contain rounded-full"
@@ -36,8 +36,11 @@ function Nav() {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
+            <Link href="/subscribers" className="black_btn">
+              Subscribers
+            </Link>
             <Link href="/feature-images" className="black_btn">
-              Add Feature Image
+              Feature Image
             </Link>
             <Link href="/create-prompt" className="black_btn">
               Create Post
@@ -99,6 +102,20 @@ function Nav() {
                   onClick={() => setToggleDropDown(false)}
                 >
                   My Profile
+                </Link>
+                <Link
+                  href="/subscribers"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropDown(false)}
+                >
+                  Subscribers
+                </Link>
+                <Link
+                  href="/feature-images"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropDown(false)}
+                >
+                  Feature Image
                 </Link>
                 <Link
                   href="/create-prompt"
