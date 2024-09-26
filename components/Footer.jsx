@@ -16,6 +16,8 @@ function Footer() {
       });
       if (response.ok) {
         alert("Subscribed");
+      } else if (response.status === 409) {
+        alert("Email already subscribed");
       }
     } catch (error) {
       console.log(error);
