@@ -1,9 +1,16 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 function Footer() {
   const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session) {
+      document.getElementById("email").value = session.user.email;
+    }
+  }, [session]);
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
@@ -33,7 +40,6 @@ function Footer() {
           <input
             type="email"
             id="email"
-            value={session?.user.email}
             placeholder="Email"
             className="search_input peer"
           />

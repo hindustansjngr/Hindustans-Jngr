@@ -1,6 +1,8 @@
 import Feed from "@components/Feed";
+import TypeWriter from "@components/TypeWriter";
 
 export default function Home() {
+  const messages = ["Wheel Alignment and Tyres", "Sounds and Pendal Works"];
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
@@ -8,12 +10,7 @@ export default function Home() {
         <br className="max-md:hidden" />
         <span className="orange_gradient text-center">
           {" "}
-          Wheel Alignment and Tyres
-        </span>
-        <br />
-        <span className="orange_gradient text-center">
-          {" "}
-          Sounds and Pendal Works
+          <TypeWriter messages={messages} />
         </span>
       </h1>
       <p className="desc text-center">
