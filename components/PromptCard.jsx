@@ -52,7 +52,15 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
         </div>
       </div>
 
-      <p className="my-4 font-satoshi text-sm text-gray-700">{post.prompt}</p>
+      <Image
+        src={post.image}
+        alt="user_image"
+        width={800}
+        height={800}
+        className="rounded my-2 object-contain"
+      />
+
+      <p className="my-2 font-satoshi text-sm text-gray-700">{post.prompt}</p>
       <p
         className="font-inter text-sm blue_gradient cursor-pointer"
         onClick={() => {
