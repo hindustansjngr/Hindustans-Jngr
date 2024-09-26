@@ -21,6 +21,7 @@ const PromptCardList = ({ data, handleTagClick }) => {
 
 function Feed() {
   const [posts, setPosts] = useState([]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -30,23 +31,24 @@ function Feed() {
       setPosts(data);
     };
     fetchPosts();
+
+    const fetchImages = async () => {
+      const response = await fetch("/api/feature-image");
+      const data = await response.json();
+      setImages(data);
+    };
+    fetchImages();
   }, []);
 
   return (
     <section className="feed">
       <Carousel showThumbs={false} autoPlay infiniteLoop>
-        <div>
-          <img src={posts[0]?.image} className="w-full" />
-          <h2 className="my-3">{posts[0]?.prompt}</h2>
-        </div>
-        <div>
-          <img src={posts[1]?.image} className="w-full" />
-          <h2 className="my-3">{posts[1]?.prompt}</h2>
-        </div>
-        <div>
-          <img src={posts[2]?.image} className="w-full" />
-          <h2 className="my-3">{posts[2]?.prompt}</h2>
-        </div>
+        {images.map((image) => (
+          <div>
+            <img src={image.image_url} className="w-full" />
+            {/* <h2 className="my-3">{posts[0]?.prompt}</h2> */}
+          </div>
+        ))}
       </Carousel>
 
       <PromptCardList data={posts} handleTagClick={() => {}} />
