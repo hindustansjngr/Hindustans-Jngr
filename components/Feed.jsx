@@ -1,7 +1,9 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
@@ -14,31 +16,42 @@ const PromptCardList = ({ data, handleTagClick }) => {
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
 function Feed() {
-  const [searchText, setSearchText] = useState("")
-  const [posts, setPosts] = useState([])
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value)
-  }
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/api/prompt")
-      const data = await response.json()
-      setPosts(data)
-    }
-    fetchPosts()
-  }, [])
+      const response = await fetch("/api/prompt");
+      const data = await response.json();
+      data.reverse();
+      setPosts(data);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <section className="feed">
+      <Carousel showThumbs={false} autoPlay infiniteLoop>
+        <div>
+          <img src={posts[0]?.image} className="w-full" />
+          <h2 className="my-3">{posts[0]?.prompt}</h2>
+        </div>
+        <div>
+          <img src={posts[1]?.image} className="w-full" />
+          <h2 className="my-3">{posts[1]?.prompt}</h2>
+        </div>
+        <div>
+          <img src={posts[2]?.image} className="w-full" />
+          <h2 className="my-3">{posts[2]?.prompt}</h2>
+        </div>
+      </Carousel>
 
       <PromptCardList data={posts} handleTagClick={() => {}} />
     </section>
-  )
+  );
 }
 
-export default Feed
+export default Feed;
