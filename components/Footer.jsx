@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useEffect } from "react";
 
 function Footer() {
@@ -53,7 +54,42 @@ function Footer() {
 
         <div className="mt-8 flex items-center justify-center">
           <p className="text-base text-center text-gray-600">
-            2024 Hindustan's Jngr. All Rights Reserved.
+            Contact Us Here.
+            <br />
+            <a className="text-black text-2xl" href="mailto:hindustanjngr@gmail.com">hindustanjngr@gmail.com</a>
+          </p>
+        </div>
+
+        <div className="mt-12 flex items-center justify-center">
+          <a href={"/"} className="mx-3 text-base text-center text-gray-600">
+            <Image
+              src={"/assets/icons/facebook.png"}
+              width={40}
+              height={40}
+              alt="facebook"
+            />
+          </a>
+          <a href={"https://www.instagram.com/hindustans_jngr/"} className="mx-3 text-base text-center text-gray-600">
+            <Image
+              src={"/assets/icons/instagram.png"}
+              width={40}
+              height={40}
+              alt="instagram"
+            />
+          </a>
+          <a href={"/"} className="mx-3 text-base text-center text-gray-600">
+            <Image
+              src={"/assets/icons/twitter.png"}
+              width={40}
+              height={40}
+              alt="twitter"
+            />
+          </a>
+        </div>
+        <div className="mt-8 flex items-center justify-center">
+          <p className="text-base text-center text-gray-600">
+            Copyright &copy; <a href="/">Hindustan's Jngr</a> - All rights
+            reserved.
           </p>
         </div>
       </div>
