@@ -53,7 +53,7 @@ function Footer() {
 
         <div className="mt-8 flex items-center justify-center">
           <p className="text-base text-center text-gray-600">
-            2024 Hindustan's Jnge. All Rights Reserved.
+            2024 Hindustan's Jngr. All Rights Reserved.
           </p>
         </div>
       </div>

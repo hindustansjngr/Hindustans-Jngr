@@ -36,12 +36,17 @@ function Nav() {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-            <Link href="/subscribers" className="black_btn">
-              Subscribers
-            </Link>
-            <Link href="/feature-images" className="black_btn">
-              Feature Image
-            </Link>
+            {session?.user.email === "hindustanjngr@gmail.com" && (
+              <>
+                <Link href="/subscribers" className="black_btn">
+                  Subscribers
+                </Link>
+                <Link href="/feature-images" className="black_btn">
+                  Feature Image
+                </Link>
+              </>
+            )}
+
             <Link href="/create-prompt" className="black_btn">
               Create Post
             </Link>
@@ -103,20 +108,25 @@ function Nav() {
                 >
                   My Profile
                 </Link>
-                <Link
-                  href="/subscribers"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropDown(false)}
-                >
-                  Subscribers
-                </Link>
-                <Link
-                  href="/feature-images"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropDown(false)}
-                >
-                  Feature Image
-                </Link>
+                {session?.user.email === "hindustanjngr@gmail.com" && (
+                  <>
+                    <Link
+                      href="/subscribers"
+                      className="dropdown_link"
+                      onClick={() => setToggleDropDown(false)}
+                    >
+                      Subscribers
+                    </Link>
+                    <Link
+                      href="/feature-images"
+                      className="dropdown_link"
+                      onClick={() => setToggleDropDown(false)}
+                    >
+                      Feature Image
+                    </Link>
+                  </>
+                )}
+
                 <Link
                   href="/create-prompt"
                   className="dropdown_link"

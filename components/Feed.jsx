@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import Link from "next/link";
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
@@ -27,7 +28,6 @@ function Feed() {
     const fetchPosts = async () => {
       const response = await fetch("/api/prompt");
       const data = await response.json();
-      data.reverse();
       setPosts(data);
     };
     fetchPosts();
@@ -52,6 +52,17 @@ function Feed() {
       </Carousel>
 
       <PromptCardList data={posts} handleTagClick={() => {}} />
+
+      {posts.length > 0 && (
+        <div className="flex justify-center items-center">
+          <Link
+            href={"/post"}
+            className="px-5 py-2 rounded bg-primary-orange text-white border-none"
+          >
+            Show All
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

@@ -19,6 +19,12 @@ function page() {
   const createPrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+
+    if (!file) {
+      alert("Image required");
+      setSubmitting(false);
+      return;
+    }
     try {
       const data = new FormData();
       data.set("file", file);
