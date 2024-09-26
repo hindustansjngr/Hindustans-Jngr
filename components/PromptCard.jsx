@@ -4,11 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
   const { data: session } = useSession();
   const pathName = usePathname();
-  const router = useRouter();
+
   const [copied, setCopied] = useState("");
   const handleCopy = () => {
     setCopied(post.prompt);
@@ -52,15 +53,17 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
         </div>
       </div>
 
-      <Image
-        src={post.image}
-        alt="user_image"
-        width={800}
-        height={800}
-        className="rounded my-2 object-contain"
-      />
+      <Link href={`/post/${post._id}`}>
+        <Image
+          src={post.image}
+          alt="user_image"
+          width={800}
+          height={800}
+          className="rounded my-2 object-contain"
+        />
 
-      <p className="my-2 font-satoshi text-sm text-gray-700">{post.prompt}</p>
+        <p className="my-2 font-satoshi text-sm text-gray-700">{post.prompt}</p>
+      </Link>
       <p
         className="font-inter text-sm blue_gradient cursor-pointer"
         onClick={() => {
