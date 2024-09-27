@@ -5,7 +5,7 @@ import "@styles/globals.css";
 
 export const metadata = {
   title: "Hindustan's Jngr",
-  description: "Discover & Share AI Prompts",
+  description: "Wheel Alignment and Tyres | Sounds and Pendal Works",
 };
 
 function RootLayout({ children }) {
