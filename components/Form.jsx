@@ -1,15 +1,16 @@
 import Link from "next/link";
 import React from "react";
+import ImageUpload from "./ImageUpload";
 
-function Form({ type, post, setPost, setFile, submitting, handleSubmit }) {
+function Form({ type, post, setPost, submitting, handleSubmit }) {
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="head_text text-left">
         <span className="blue_gradient">{type} Post</span>
       </h1>
       <p className="desc text-left max-w-md">
-        {type} and share amazing experience you had from <b>Hindustan's Jngr</b>, and let your
-        thoughts run wild.
+        {type} and share amazing experience you had from <b>Hindustan's Jngr</b>
+        , and let your thoughts run wild.
       </p>
 
       <form
@@ -21,17 +22,13 @@ function Form({ type, post, setPost, setFile, submitting, handleSubmit }) {
             <span className="font-satoshi font-semibold text-base text-gray-700">
               Image
             </span>
-            <input
-              onChange={(e) => setFile(e.target.files?.[0])}
-              placeholder="Upload"
-              type="file"
-              name="file"
-            />
+            <br />
+            <ImageUpload setPost={setPost} post={post} />
           </label>
         ) : null}
 
         <label htmlFor="">
-          <span className="font-satoshi font-semibold text-base text-gray-700">
+          <span className="my-2 font-satoshi font-semibold text-base text-gray-700">
             Message
           </span>
           <textarea

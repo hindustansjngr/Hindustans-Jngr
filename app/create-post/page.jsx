@@ -10,8 +10,8 @@ function page() {
   const router = useRouter();
 
   const [submitting, setSubmitting] = useState(false);
-  const [file, setFile] = useState();
   const [post, setPost] = useState({
+    image: "",
     prompt: "",
     tag: "",
   });
@@ -19,22 +19,16 @@ function page() {
   const createPrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-
-    if (!file) {
-      alert("Image required");
-      setSubmitting(false);
-      return;
-    }
+    
     try {
-      const data = new FormData();
-      data.set("file", file);
-      data.set("userId", session?.user.id);
-      data.set("prompt", post.prompt);
-      data.set("tag", post.tag);
-
       const response = await fetch("/api/prompt/new", {
         method: "POST",
-        body: data,
+        body: JSON.stringify({
+          image: post.image,
+          prompt: post.prompt,
+          userId: session?.user.id,
+          tag: post.tag,
+        }),
       });
       if (response.ok) {
         router.push("/");
@@ -51,7 +45,6 @@ function page() {
       type="Create"
       post={post}
       setPost={setPost}
-      setFile={setFile}
       submitting={submitting}
       handleSubmit={createPrompt}
     />

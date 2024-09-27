@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Router } from "next/router";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { CldImage } from "next-cloudinary";
 
 function Post({ id }) {
   const [post, setPost] = useState(null);
@@ -50,7 +50,7 @@ function Post({ id }) {
               </div>
             </div>
           </div>
-          <Image src={post.image} width={800} height={800} className="my-8" />
+          <CldImage src={post.image} alt="Post Image" width={800} height={800} className="my-2" />
           <p className="my-5 font-satoshi text-2xl text-gray-700">
             {post.prompt}
           </p>

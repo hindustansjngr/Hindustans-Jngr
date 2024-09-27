@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 
 function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
@@ -54,9 +55,9 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
       </div>
 
       <Link href={`/post/${post._id}`}>
-        <Image
+        <CldImage
           src={post.image}
-          alt="user_image"
+          alt="Post Image"
           width={800}
           height={800}
           className="rounded my-2 object-contain"
