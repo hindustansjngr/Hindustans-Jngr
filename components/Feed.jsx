@@ -37,6 +37,7 @@ function Feed() {
       const response = await fetch("/api/feature-image");
       const data = await response.json();
       setImages(data);
+      console.log(data);
     };
     fetchImages();
   }, []);
@@ -53,6 +54,7 @@ function Feed() {
                 width={1000}
                 height={1000}
                 className="w-full"
+                priority
               />
             )}
 
