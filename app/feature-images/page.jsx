@@ -54,6 +54,9 @@ function page() {
   };
   return (
     <div>
+      <p className="my-8 desc text-left max-w-md">
+        Toggle Featured Image Here. This is the slider shown in Home page of <b>Hindsutan's Jngr</b>.
+      </p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">
           <span className="font-satoshi font-semibold text-base text-gray-700">

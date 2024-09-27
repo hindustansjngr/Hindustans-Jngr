@@ -8,8 +8,8 @@ function Form({ type, post, setPost, setFile, submitting, handleSubmit }) {
         <span className="blue_gradient">{type} Post</span>
       </h1>
       <p className="desc text-left max-w-md">
-        {type} and share amazing prompts with the world, and let your
-        imagination run wild with any AI-powered platform.
+        {type} and share amazing experience you had from <b>Hindustan's Jngr</b>, and let your
+        thoughts run wild.
       </p>
 
       <form
@@ -32,7 +32,7 @@ function Form({ type, post, setPost, setFile, submitting, handleSubmit }) {
 
         <label htmlFor="">
           <span className="font-satoshi font-semibold text-base text-gray-700">
-            Your AI Prompt
+            Message
           </span>
           <textarea
             value={post.prompt}
@@ -47,7 +47,7 @@ function Form({ type, post, setPost, setFile, submitting, handleSubmit }) {
             Tag{" "}
             <span className="font-normal">
               {" "}
-              (#product, #webdevelopment, #idea)
+              (#hosanagara, #hindustan, #shivamogga)
             </span>
           </span>
           <input
