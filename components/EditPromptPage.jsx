@@ -1,13 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import Form from "@components/Form";
+import { useRouter } from "next/navigation";
+import Form from "./Form";
 
-function page() {
-
-  const searchParams = useSearchParams();
-  const promptId = searchParams.get("id");
+function EditPromptPage({promptId}) {
   const router = useRouter();
 
   const [submitting, setSubmitting] = useState(false);
@@ -50,7 +47,6 @@ function page() {
       setSubmitting(false);
     }
   };
-
   return (
     <Form
       type="Edit"
@@ -62,4 +58,4 @@ function page() {
   );
 }
 
-export default page;
+export default EditPromptPage;
