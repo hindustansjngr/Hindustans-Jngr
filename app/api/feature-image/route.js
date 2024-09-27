@@ -4,7 +4,7 @@ import FeatureImage from "@models/featureImage";
 export const GET = async (req) => {
   try {
     await connectToDB();
-    const prompts = await FeatureImage.find({});
+    const prompts = await FeatureImage.find({}).lean().exec();
     return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (error) {
     return new Response("Failed to fetch all prompts", { status: 500 });
