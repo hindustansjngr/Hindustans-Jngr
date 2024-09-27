@@ -61,7 +61,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex items-center justify-center">
-          <a href={"/"} className="mx-3 text-base text-center text-gray-600">
+          <a href={"https://www.facebook.com/mdjaseem.mdjaseem.9862"} className="mx-3 text-base text-center text-gray-600">
             <Image
               src={"/assets/icons/facebook.png"}
               width={40}
@@ -77,7 +77,7 @@ function Footer() {
               alt="instagram"
             />
           </a>
-          <a href={"/"} className="mx-3 text-base text-center text-gray-600">
+          <a href={"https://x.com/JaseemJayanagar"} className="mx-3 text-base text-center text-gray-600">
             <Image
               src={"/assets/icons/twitter.png"}
               width={40}
