@@ -17,7 +17,6 @@ function page() {
     const data = await response.json();
     data.reverse()
     setImages(data);
-    console.log(data);
   };
 
   useEffect(() => {

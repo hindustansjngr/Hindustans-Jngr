@@ -5,8 +5,6 @@ import { writeFile } from "fs/promises";
 export const POST = async (req) => {
   const { image } = await req.json();
 
-  console.log(image)
-
   try {
     await connectToDB();
     const newFeatureImage = new FeatureImage({ image_url: image });

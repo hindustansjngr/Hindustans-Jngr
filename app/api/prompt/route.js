@@ -15,7 +15,6 @@ export const GET = async (req) => {
         .skip((pageNo - 1) * pageSize)
         .limit(pageSize);
         
-        console.log(prompts)
         return new Response(JSON.stringify(prompts), { status: 200 });
     } catch (error) {
         return new Response("Failed to fetch all prompts", { status: 500 });

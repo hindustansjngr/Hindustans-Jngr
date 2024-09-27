@@ -13,12 +13,10 @@ function Post({ id }) {
       try {
         const response = await fetch(`/api/prompt/${id}`);
         const data = await response.json();
-        console.log(response);
         if (!response.ok) {
           router.push("/");
         }
         setPost(data);
-        console.log(data);
       } catch (error) {
         router.push("/");
       }
