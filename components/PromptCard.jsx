@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 
 function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
@@ -56,7 +55,7 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
 
       <Link href={`/post/${post._id}`}>
         {post.image && (
-          <CldImage
+          <Image
             src={post.image}
             alt="Post Image"
             width={800}

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import ImageUpload from "@components/ImageUpload";
-import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 
 function page() {
   const [post, setPost] = useState({ image: "" });
@@ -82,7 +82,7 @@ function page() {
         {images.map((image) => (
           <div className="my-16">
             {image.image_url && (
-              <CldImage
+              <Image
                 src={image.image_url}
                 alt="Feature Image"
                 width={500}

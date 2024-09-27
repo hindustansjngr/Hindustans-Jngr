@@ -1,18 +1,19 @@
 "use client";
 
-import { CldImage, CldUploadWidget } from "next-cloudinary";
+import { CldUploadWidget } from "next-cloudinary";
+import Image from "next/image";
 import { useState } from "react";
 
 function ImageUpload({ setPost, post }) {
-  const [publicId, setPublicId] = useState("");
+  const [url, setUrl] = useState("");
   return (
     <>
       <CldUploadWidget
         uploadPreset="hindustansjngr"
         onSuccess={({ event, info }) => {
           if (event === "success") {
-            setPublicId(info.public_id);
-            setPost({ ...post, image: info.public_id });
+            setUrl(info.secure_url);
+            setPost({ ...post, image: info.secure_url });
           }
         }}
       >
@@ -28,9 +29,9 @@ function ImageUpload({ setPost, post }) {
         }}
       </CldUploadWidget>
 
-      {publicId && (
-        <CldImage
-          src={publicId}
+      {url && (
+        <Image
+          src={url}
           alt="Uploaded Image"
           width={300}
           height={300}

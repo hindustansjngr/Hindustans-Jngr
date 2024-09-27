@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { CldImage } from "next-cloudinary";
 
 function Post({ id }) {
   const [post, setPost] = useState(null);
@@ -48,7 +47,7 @@ function Post({ id }) {
               </div>
             </div>
           </div>
-          <CldImage src={post.image} alt="Post Image" width={800} height={800} className="my-2" />
+          <Image src={post.image} alt="Post Image" width={800} height={800} className="my-2" />
           <p className="my-5 font-satoshi text-2xl text-gray-700">
             {post.prompt}
           </p>

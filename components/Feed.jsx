@@ -5,7 +5,7 @@ import PromptCard from "./PromptCard";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
-import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
@@ -47,7 +47,7 @@ function Feed() {
         {images.map((image) => (
           <div key={image._id || image.image_url}>
             {image.image_url && (
-              <CldImage
+              <Image
                 src={image.image_url}
                 alt="Feature Image"
                 width={1000}
