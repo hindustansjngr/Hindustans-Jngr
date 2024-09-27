@@ -55,13 +55,15 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
       </div>
 
       <Link href={`/post/${post._id}`}>
-        <CldImage
-          src={post.image}
-          alt="Post Image"
-          width={800}
-          height={800}
-          className="rounded my-2 object-contain"
-        />
+        {post.image && (
+          <CldImage
+            src={post.image}
+            alt="Post Image"
+            width={800}
+            height={800}
+            className="rounded my-2 object-contain"
+          />
+        )}
 
         <p className="my-2 font-satoshi text-sm text-gray-700">{post.prompt}</p>
       </Link>

@@ -45,14 +45,17 @@ function Feed() {
     <section className="feed">
       <Carousel showThumbs={false} autoPlay infiniteLoop>
         {images.map((image) => (
-          <div>
-            <CldImage
-              src={image.image_url}
-              alt="Feature Image"
-              width={1000}
-              height={1000}
-              className="w-full"
-            />
+          <div key={image._id || image.image_url}>
+            {image.image_url && (
+              <CldImage
+                src={image.image_url}
+                alt="Feature Image"
+                width={1000}
+                height={1000}
+                className="w-full"
+              />
+            )}
+
             {/* <h2 className="my-3">{posts[0]?.prompt}</h2> */}
           </div>
         ))}

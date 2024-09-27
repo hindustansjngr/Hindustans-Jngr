@@ -13,9 +13,9 @@ function page() {
   const [images, setImages] = useState([]);
 
   const fetchImages = async () => {
-    const response = await fetch("/api/feature-image");
+    const response = await fetch("/api/feature-image", { cache: "no-store" });
     const data = await response.json();
-    data.reverse()
+    data.reverse();
     setImages(data);
   };
 
@@ -81,12 +81,15 @@ function page() {
       <div className="mt-16">
         {images.map((image) => (
           <div className="my-16">
-            <CldImage
-              src={image.image_url}
-              alt="Feature Image"
-              width={500}
-              height={500}
-            />
+            {image.image_url && (
+              <CldImage
+                src={image.image_url}
+                alt="Feature Image"
+                width={500}
+                height={500}
+              />
+            )}
+
             <button
               className="my-4 px-5 py-1.5 rounded-full text-sm bg-primary-orange text-white border-none"
               onClick={() => handleDelete(image._id)}
