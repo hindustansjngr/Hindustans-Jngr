@@ -47,7 +47,7 @@ function Nav() {
               </>
             )}
 
-            <Link href="/create-prompt" className="black_btn">
+            <Link href="/create-post" className="black_btn">
               Create Post
             </Link>
             <button
@@ -128,11 +128,11 @@ function Nav() {
                 )}
 
                 <Link
-                  href="/create-prompt"
+                  href="/create-post"
                   className="dropdown_link"
                   onClick={() => setToggleDropDown(false)}
                 >
-                  Create Prompt
+                  Create Post
                 </Link>
                 <button
                   type="button"

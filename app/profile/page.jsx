@@ -21,7 +21,7 @@ function page() {
   }, []);
 
   const handleEdit = (post) => {
-    router.push("/update-prompt/" + post._id);
+    router.push("/update-post/" + post._id);
   };
   const handleDelete = async (post) => {
     const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
