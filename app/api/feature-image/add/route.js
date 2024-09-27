@@ -1,13 +1,12 @@
 import { connectToDB } from "@utils/database";
 import FeatureImage from "@models/featureImage";
-import { writeFile } from "fs/promises";
 
 export const POST = async (req) => {
-  const { image } = await req.json();
+  const { alt_text, image } = await req.json();
 
   try {
     await connectToDB();
-    const newFeatureImage = new FeatureImage({ image_url: image });
+    const newFeatureImage = new FeatureImage({ image_url: image, alt_text: alt_text });
     await newFeatureImage.save();
     return new Response("Added new feature image", { status: 201 });
   } catch (error) {

@@ -6,7 +6,7 @@ import ImageUpload from "@components/ImageUpload";
 import Image from "next/image";
 
 function page() {
-  const [post, setPost] = useState({ image: "" });
+  const [post, setPost] = useState({ alt_text: "", image: "" });
   const [submitting, setSubmitting] = useState(false);
   const [type, setType] = useState("Add");
 
@@ -31,6 +31,7 @@ function page() {
       method: "POST",
       body: JSON.stringify({
         image: post.image,
+        alt_text: post.alt_text,
       }),
     });
     if (response.ok) {
@@ -63,6 +64,19 @@ function page() {
         </span>
         <br />
         <ImageUpload setPost={setPost} post={post} />
+      </label>
+      <br />
+      <label htmlFor="">
+        <span className="my-5 font-satoshi font-semibold text-base text-gray-700">
+          Alt text
+        </span>
+        <input
+          value={post.alt_text}
+          onChange={(e) => setPost({ ...post, alt_text: e.target.value })}
+          placeholder="alt text"
+          required
+          className="form_input"
+        />
       </label>
       <div className="flex-end my-8 mx-3 mb-5 gap-4">
         <Link href="/" className="text-gray-500 text-sm">
