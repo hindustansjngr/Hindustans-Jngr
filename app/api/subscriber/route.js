@@ -1,7 +1,7 @@
 import { connectToDB } from "@utils/database";
 import Subscriber from "@models/subscriber";
 
-export const GET = async () => {
+export const POST = async () => {
   try {
     await connectToDB();
     const subscribers = await Subscriber.find({});

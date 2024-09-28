@@ -8,17 +8,24 @@ function page() {
 
   useEffect(() => {
     const fetchSubscribers = async () => {
-      const response = await fetch("/api/subscriber");
-      const data = await response.json();
-      data.reverse()
-      setSubscribers(data);
+      try {
+        const response = await fetch("/api/subscriber", {
+          method: "POST",
+          body: JSON.stringify({}),
+        });
+        const data = await response.json();
+        data.reverse();
+        setSubscribers(data);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchSubscribers();
   }, []);
 
   return (
     <div>
-        <h2>{subscribers.length} : Subscribers</h2>
+      <h2>{subscribers.length} : Subscribers</h2>
       {subscribers.map((subscriber) => (
         <div className="flex justify-between items-center gap-5 prompt_card">
           <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">

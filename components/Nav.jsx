@@ -36,7 +36,7 @@ function Nav() {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-            {/* {session?.user.email === "hindustanjngr@gmail.com" && ( */}
+            {session?.user.email === "hindustanjngr@gmail.com" && (
               <>
                 <Link href="/subscribers" className="black_btn">
                   Subscribers
@@ -45,7 +45,7 @@ function Nav() {
                   Feature Image
                 </Link>
               </>
-            {/* )} */}
+            )}
 
             <Link href="/create-post" className="black_btn">
               Create Post
@@ -108,7 +108,7 @@ function Nav() {
                 >
                   My Profile
                 </Link>
-                {/* {session?.user.email === "hindustanjngr@gmail.com" && ( */}
+                {session?.user.email === "hindustanjngr@gmail.com" && (
                   <>
                     <Link
                       href="/subscribers"
@@ -125,7 +125,7 @@ function Nav() {
                       Feature Image
                     </Link>
                   </>
-                {/* )} */}
+                )}
 
                 <Link
                   href="/create-post"
