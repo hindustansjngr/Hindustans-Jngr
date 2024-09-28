@@ -34,10 +34,17 @@ function Feed() {
     fetchPosts();
 
     const fetchImages = async () => {
-      const response = await fetch("/api/slider");
-      const data = await response.json();
-      setImages(data);
-      console.log(data);
+      try {
+        const response = await fetch("/api/slider", {
+          method: "POST",
+          body: JSON.stringify({}),
+        });
+        const data = await response.json();
+        setImages(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchImages();
   }, []);

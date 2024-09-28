@@ -13,10 +13,17 @@ function page() {
   const [images, setImages] = useState([]);
 
   const fetchImages = async () => {
-    const response = await fetch("/api/slider");
-    const data = await response.json();
-    data.reverse();
-    setImages(data);
+    try {
+      const response = await fetch("/api/slider", {
+        method: "POST",
+        body: JSON.stringify({}),
+      });
+      const data = await response.json();
+      data.reverse();
+      setImages(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
