@@ -1,7 +1,7 @@
 import { connectToDB } from "@utils/database";
 import FeatureImage from "@models/featureImage";
 
-export const GET = async (req) => {
+export const GET = async () => {
   try {
     await connectToDB();
     const prompts = await FeatureImage.find({});
