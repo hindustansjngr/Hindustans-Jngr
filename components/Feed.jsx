@@ -34,7 +34,7 @@ function Feed() {
     fetchPosts();
 
     const fetchImages = async () => {
-      const response = await fetch("/api/feature-image");
+      const response = await fetch("/api/slider");
       const data = await response.json();
       setImages(data);
       console.log(data);

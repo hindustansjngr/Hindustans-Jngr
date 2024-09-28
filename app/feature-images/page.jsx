@@ -13,7 +13,7 @@ function page() {
   const [images, setImages] = useState([]);
 
   const fetchImages = async () => {
-    const response = await fetch("/api/feature-image", { cache: "no-store" });
+    const response = await fetch("/api/slider");
     const data = await response.json();
     data.reverse();
     setImages(data);
@@ -27,7 +27,7 @@ function page() {
     e.preventDefault();
     setSubmitting(true);
 
-    const response = await fetch("/api/feature-image/add", {
+    const response = await fetch("/api/slider/add", {
       method: "POST",
       body: JSON.stringify({
         image: post.image,
@@ -44,7 +44,7 @@ function page() {
   const handleDelete = async (id) => {
     const hasConfirmed = confirm("Are you sure you want to delete this image?");
     if (hasConfirmed) {
-      const response = await fetch(`/api/feature-image/${id}`, {
+      const response = await fetch(`/api/slider/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
